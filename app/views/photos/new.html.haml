@@ -1,1 +1,6 @@
-new.html.haml
+
+%h1 Upload
+
+= form_for @new_pic do |p|
+	= p.file_field :photo_share
+	= p.submit!

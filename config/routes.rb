@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require 'carrierwave/orm/activerecord'
   resources :photos do
     member do
       get :download_photo

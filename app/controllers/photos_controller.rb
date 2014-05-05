@@ -3,14 +3,24 @@ class PhotosController < ApplicationController
 	def index
 		@pics = Photo.all
 	end
+
 	def edit
 		@pic = Photo.find(params[:id])
 	end
+
 	def new
-		@pic = Photo.new(photo_params)
-		if @pic.save
-			redirect_to photos_path
+		@new_pic = Photo.new
 	end
+
+	def create
+		@new_pic = Photo.new(photo_params)
+		if @new_pic.save
+			redirect_to photos_path
+		else
+			redirect_to new_photo_path
+		end
+	end
+
 	def update
 		@pic = Photo.find(params[:id])
 		@pic.update_attributes(params[:id])
@@ -20,19 +30,19 @@ class PhotosController < ApplicationController
 		@pic.delete!
 	end
 
-	def 
+
 
 	def show
 		@pic = Photo.find(params[:id])
 	end
 	
 	def upload_pic
-		@pic = Photo.new
+		@pic = Photo.find(params[:id])
 		@pic.photo_share = params[:file]
 		@pic.save!
 	end
 	def photo_params
-		params.require(:photo).permit!
+		params.require(:photo).permit(:photo_share)
 	end
 
 end
