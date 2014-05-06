@@ -1,1 +1,11 @@
-new.html.haml
+= form_for @new_event do |e|
+	= e.label :name
+	= e.text_field :name
+
+	= e.label :location
+	= e.text_field :location
+
+	= e.label :date
+	= e.date_select :date
+
+	= e.submit "Submit"	

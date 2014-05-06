@@ -1,1 +1,5 @@
-index.html.haml
+%h1 list of all events
+- @events.each do |e|
+	= e.name
+	= e.location
+	= e.date

@@ -1,4 +1,4 @@
-class EventController < ApplicationController
+class EventsController < ApplicationController
 	def index
 		@events = Event.all
 	end
@@ -12,7 +12,7 @@ class EventController < ApplicationController
 		@new_event = Event.new
 	end
 	def create
-		@new_event = Event.new
+		@new_event = Event.new(event_params)
 		if @new_event.save
 			redirect_to events_path
 		else
@@ -28,8 +28,15 @@ class EventController < ApplicationController
 		end
 	end
 	def destroy
+		@event = Event.find(params[:id])
+		if @event.destroy
+			redirect_to events_path
+		else
+			redirect_to event_path(@event)
+		end
+	end
 	def event_params
-		require.(:event).permit(:name, :location, :date)
+		params.require(:event).permit(:name, :location, :date)
 	end
 
 end
