@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
 
+
 	def index
 		@pics = Photo.all
 	end
@@ -10,6 +11,11 @@ class PhotosController < ApplicationController
 
 	def new
 		@new_pic = Photo.new
+	end
+	def show
+		@pic = Photo.find(params[:id])
+		@new_comment = @pic.comments.build
+		@pic.comments.build
 	end
 
 	def create
@@ -32,9 +38,7 @@ class PhotosController < ApplicationController
 
 
 
-	def show
-		@pic = Photo.find(params[:id])
-	end
+
 	
 	def upload_pic
 		@pic = Photo.find(params[:id])

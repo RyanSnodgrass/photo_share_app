@@ -1,6 +1,5 @@
 class Photo < ActiveRecord::Base
-	# has_many_and_belongs_to_many :tags
-
-	
+	has_many :comments
+	accepts_nested_attributes_for :comments
 	mount_uploader :photo_share, PhotoShareUploader
 end

@@ -1,0 +1,6 @@
+= image_tag @pic.photo_share.url
+
+= form_for @pic, url: "/photos/#{@pic.id}", method: :put do |f|
+	= f.fields_for :comments do |ff|
+		= ff.text_field :content
+	= f.submit "Add Comment"
