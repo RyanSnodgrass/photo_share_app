@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
 	def show
 		@pic = Photo.find(params[:id])
 		@new_comment = @pic.comments.build
-		@pic.comments.build
+
 	end
 
 	def create
@@ -29,7 +29,8 @@ class PhotosController < ApplicationController
 
 	def update
 		@pic = Photo.find(params[:id])
-		@pic.update_attributes(params[:id])
+		@pic.update_attributes(photo_params)
+			redirect_to photo_path
 	end
 	def destroy
 		@pic = Photo.find(params[:id])
@@ -37,16 +38,14 @@ class PhotosController < ApplicationController
 	end
 
 
-
-
-	
 	def upload_pic
 		@pic = Photo.find(params[:id])
 		@pic.photo_share = params[:file]
 		@pic.save!
 	end
+	private
 	def photo_params
-		params.require(:photo).permit(:photo_share)
+		params.require(:photo).permit!
 	end
 
 end

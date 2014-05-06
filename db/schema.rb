@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506153713) do
+ActiveRecord::Schema.define(version: 20140506190726) do
 
   create_table "comments", force: true do |t|
     t.string  "content"
-    t.integer "photo_id"
+    t.integer "commentable_id"
+    t.string  "commentable_type"
   end
 
   create_table "events", force: true do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140506153713) do
 
   create_table "photos", force: true do |t|
     t.string "photo_share"
+    t.string "title"
   end
 
   create_table "photos_tags", id: false, force: true do |t|
