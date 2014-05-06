@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-	has_and_belongs_to_many :events
+
 	def index
-		@user = User.find(params[:id])
+		@users = User.all
 	end
 	def new
 		@new_user = User.new
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 	end
 	def update
 		@user = User.find(params[:id])
-		@user.update_attributes(@user)
+		@user.update_attributes(user_params)
 		redirect_to user_path(@user)
 	end
 	def user_params

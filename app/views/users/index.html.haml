@@ -1,0 +1,9 @@
+- @users.each do |u|
+	= u.name
+	%br
+	= u.email
+	%br
+
+	= link_to 'Show', u
+	= link_to 'Edit', edit_user_path(u)
+	= link_to 'Delete', u, :method => :delete, :data => { :confirm => 'Are you sure?' }
