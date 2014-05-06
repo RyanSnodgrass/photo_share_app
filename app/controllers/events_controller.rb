@@ -4,12 +4,14 @@ class EventsController < ApplicationController
 	end
 	def show
 		@event = Event.find(params[:id])
+		@new_comment = @event.comments.build
 	end
 	def edit
 		@event = Event.find(params[:id])
 	end
 	def new 
 		@new_event = Event.new
+
 	end
 	def create
 		@new_event = Event.new(event_params)

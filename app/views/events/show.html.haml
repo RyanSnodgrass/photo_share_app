@@ -1,1 +1,17 @@
-show.html.haml
+%p= @event.name
+%p= @event.location
+%p= @event.date
+
+- @event.comments.each do |c|
+	= c.content
+	%br
+
+= form_for @new_comment, url:"/comments", method: :post do |f|
+	= f.hidden_field :commentable_id, value: @event.id
+	= f.hidden_field :commentable_type, value: "Event"
+	= f.label "comment this event"
+	= f.text_area :content
+
+	= f.submit "Add Comment"
+
+= link_to "Back", events_path
