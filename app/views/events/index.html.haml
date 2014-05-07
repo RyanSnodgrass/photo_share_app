@@ -4,3 +4,6 @@
 	= e.location
 	= e.date
 	= link_to "Show", event_path(e)
+	%br
+%br
+= button_to "New", new_event_path, :method => :get
