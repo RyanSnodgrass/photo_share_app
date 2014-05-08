@@ -1,3 +1,6 @@
 class SessionsController < ApplicationController
 
+		
+	
+
 end
