@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PhotosController do
 
 	describe "GET #index" do
-		it 'collects all photos' do
+		it 'assigns a collection of photos' do
 			FactoryGirl.create(:photo)
 			get :index
 			assigns(:pics).count.should eq(1)
