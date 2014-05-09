@@ -15,6 +15,8 @@ class PhotosController < ApplicationController
 	def show
 		@pic = Photo.find(params[:id])
 		@new_comment = @pic.comments.build
+		@new_tag = @pic.tags.build
+		@tags = @pic.tags
 
 	end
 

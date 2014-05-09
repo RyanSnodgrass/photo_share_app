@@ -2,19 +2,30 @@
 	.small-9.large-9.small-centered.columns
 		= image_tag @pic.photo_share.url
 .row
-	.small-6.small-centered.columns
+	.small-6.columns
 		%h2= @pic.title.capitalize
 		%h4 Comments
 		- @pic.comments.each do |c|
 			= c.content
 			%br
-.row
-	.small-9.small-centered.columns
+	.small-6.columns
 		= form_for @new_comment, url: "/comments", method: :post do |f|
 			= f.hidden_field :commentable_id, value: @pic.id
 			= f.hidden_field :commentable_type, value: "Photo"
 			= f.text_field :content
 			= f.submit "Add Comment"	
+
+.row
+	.small-6.columns
+		- @tags.each do |t|
+			= t.title
+	.small-6.columns
+		= form_for @new_tag, url: "/tags", method: :post do |f|
+			= f.hidden_field :photo_id, value: @pic.id
+			= f.text_field :title
+			= f.submit
+
+
 
 .row
 	.small-2.small-centered.columns
