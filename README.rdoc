@@ -7,6 +7,9 @@ Things you may want to cover:
 
 * Ruby version
 
+Using Ruby 2.1.1
+latest RVM
+
 * System dependencies
 
 * Configuration
