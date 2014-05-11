@@ -1,0 +1,18 @@
+%nav.row
+  .large-12.columns
+    %h2 Tags Index
+    %ul.button-group.radius.even-4
+      %li
+        %a.button{href: "#"} Maine Coon
+      %li
+        %a.button{href: "#"} Turkish Angora
+      %li
+        %a.button{href: "#"} Russian Blue
+      %li
+        %a.button{href: "#"} Scottish Fold
+
+.row
+  .large-12.columns
+    - @tags.each do |t|
+      %p= t.title
+      %p= link_to "Details", tag_path(t)

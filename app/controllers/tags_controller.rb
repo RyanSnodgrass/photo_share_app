@@ -5,6 +5,7 @@ class TagsController < ApplicationController
 	end
 	def show
 		@tag = Tag.find(params[:id])
+		@related_pics = @tag.photos
 	end
 	def new
 		@new_tag = Tag.new

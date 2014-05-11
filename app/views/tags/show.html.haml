@@ -1,0 +1,6 @@
+%h1 Here is your tag
+%h2= @tag.title
+%h1 These are the photos that correspond to this tag!
+- @tag.photos.each do |t|
+	= image_tag t.photo_share.url
+
