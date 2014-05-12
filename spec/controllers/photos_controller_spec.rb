@@ -17,16 +17,16 @@ describe PhotosController do
 
 	end
 	describe 'get show' do
-		it 'should assign photo to @photo' do
+		it 'should assigns photo to @pic' do
 			photo = FactoryGirl.create(:photo)
 			get :show, id: photo.id
-			assigns(:photo).should eq(photo)
+			assigns(:pic).should eq(photo)
 		end
 	end
 	describe 'put update' do
 		it 'should update photo' do
-			pic = FactoryGirl.create(:photo)
-			put :update, id: pic.id, pic:{title: "classroom"}
+			photo = FactoryGirl.create(:photo)
+			put :update, id: photo.id, photo:{title: "classroom"}
 			assigns(:pic).title.should eq("classroom") #undefined method title for nilclass
 		end
 	end
