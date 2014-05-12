@@ -10,7 +10,7 @@
 # in short form you can try this
 
 
-Factory.define do
+FactoryGirl.define do
 
   factory :comment do
     content "wow that looked cool"

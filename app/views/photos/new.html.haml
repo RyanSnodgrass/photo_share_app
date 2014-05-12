@@ -1,4 +1,15 @@
-
+%nav.row
+	.large-12.columns
+		%h2 New Photo
+		%ul.button-group.radius.even-4
+			%li
+				%a.button{href: "/"} Home
+			%li
+				%a.button{href: "/photos"} Photos
+			%li
+				%a.button{href: "/events"} Events
+			%li
+				%a.button{href: "/tags"} Tags
 %h1 Upload
 
 = form_for @new_pic do |p|

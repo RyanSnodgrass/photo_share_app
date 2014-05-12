@@ -1,18 +1,19 @@
 %nav.row
-  .large-12.columns
-    %h2 Tags Index
-    %ul.button-group.radius.even-4
-      %li
-        %a.button{href: "#"} Maine Coon
-      %li
-        %a.button{href: "#"} Turkish Angora
-      %li
-        %a.button{href: "#"} Russian Blue
-      %li
-        %a.button{href: "#"} Scottish Fold
+	.large-12.columns
+		%h2 Tags Index
+		%ul.button-group.radius.even-4
+			%li
+				%a.button{href: "/"} Home
+			%li
+				%a.button{href: "/photos"} Photos
+			%li
+				%a.button{href: "/events"} Events
+			%li
+				%a.button{href: "/tags"} Tags
 
 .row
-  .large-12.columns
-    - @tags.each do |t|
-      %p= t.title
-      %p= link_to "Details", tag_path(t)
+	.large-12.columns
+		- @tags.each do |t|
+			.large-3.columns
+				%p= t.title
+				%p= link_to "Details", tag_path(t)
